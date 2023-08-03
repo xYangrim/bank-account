@@ -5,10 +5,18 @@
 // NOTE: You can NOT use the array.concat() method in your code
 
 export function concatArrays(arr1, arr2) {
-  // Your code goes here...
+  let meh = [];
 
+  for (let i = 0; i < arr1.length + arr2.length; i++) {
+    if (i < arr1.length) {
+      meh.push(arr1[i]);
+    } else {
+      meh.push(arr2[i - arr1.length]);
+    }
+  }
+
+  return meh;
 }
-
 
 
 // === TEST YOURSELF ===

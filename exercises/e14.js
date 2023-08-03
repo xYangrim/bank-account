@@ -6,7 +6,29 @@
 // getClientsWithWrongBalance(bankAccounts) => [{ name: 'Name1', balance: 32, ... }, { name: 'Name2', balance: 3523, ... }]
 
 export function getClientsWithWrongBalance(array) {
-  // Your code goes here...
+  var errorError = [];
+
+  for(let i = 0; i < array.length; i++) {
+    let depositsSum = 0;
+    let withdrawalsSum = 0;
+
+    if('deposits' in array[i]) {
+      for(let j = 0; j < array[i].deposits.length; j++) {
+        depositsSum += array[i].deposits[j];
+      }
+    }
+
+    if('withdrawals' in array[i]) {
+      for(let x = 0; x < array[i].withdrawals.length; x++) {
+        withdrawalsSum += array[i].withdrawals[x];
+      }
+    }
+
+    if(depositsSum - withdrawalsSum != array[i].balance) {
+      errorError.push(array[i]);
+    }
+  }
+  return errorError;
 
 }
 

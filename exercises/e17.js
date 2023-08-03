@@ -6,8 +6,15 @@
 // NOTE: You can NOT use the array.includes() method in your code
 
 export function doesArrayInclude(array, value) {
-  // Your code goes here...
+  const letter = value.toLowerCase();
 
+  for(let i = 0; i < array.length; i++) {
+    let arrLetterLowered = array[i].toLowerCase();
+    if(arrLetterLowered === letter) {
+      return true;
+    }
+  }
+  return false;
 }
 
 
